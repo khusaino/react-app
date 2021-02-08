@@ -149,20 +149,21 @@ render(){
 	let show = '';
 	let showSatge = this.state.showStage;
 	if(showSatge === '1'){
-		show = <div>
-					<Gallery 
-						imgList={this.getGalleryList()}
-						onClick={this.getShowStage}
-					/>
-					<button 
-						className="calc__button-gallary" 
-						data-link='2' 
-						onClick={this.getShowStage}>
-						<img src="img/calc/Money.png" alt=""
-					/>
-                        Заполнить бриф и получить расчет
-                    </button>
-				</div>
+	show = 
+		<div>
+			<Gallery 
+				imgList={this.getGalleryList()}
+				onClick={this.getShowStage}
+			/>
+			button 
+				className="calc__button-gallary" 
+				data-link='2' 
+				onClick={this.getShowStage}>
+				<img src="img/calc/Money.png" alt=""
+			/>
+				Заполнить бриф и получить расчет
+			</button>
+		</div>
 	}
 	else if(showSatge === '2'){
 		show = <Stage2 onChange={this.setAllValuesBool}
