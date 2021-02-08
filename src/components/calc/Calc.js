@@ -136,14 +136,33 @@ renderSwitch=()=>{
 }
 
 render(){
+	/*
+		в show присваивается компонент который будет отрендерен изходя из условий:
+		если ShowStage === номеру компонента
+		1 <Gallery/>
+		2 <Stage2/>
+		3 <Stage3/>
+		4 <Stage4/>
+		else <Stage5/>
+		ShowStage берет номер с кнопок переключения, которые переключают этапы калькулятора. Номера указаны в data-атрибуте "link" кнопок.
+	*/
 	let show = '';
 	let showSatge = this.state.showStage;
 	if(showSatge === '1'){
-		show = <div><Gallery imgList={this.getGalleryList()}
-				onClick={this.getShowStage}/>
-					<button className="calc__button-gallary" data-link='2' onClick={this.getShowStage}><img src="img/calc/Money.png" alt=""/>
-                            Заполнить бриф и получить расчет
-                        </button></div>
+		show = <div>
+					<Gallery 
+						imgList={this.getGalleryList()}
+						onClick={this.getShowStage}
+					/>
+					<button 
+						className="calc__button-gallary" 
+						data-link='2' 
+						onClick={this.getShowStage}>
+						<img src="img/calc/Money.png" alt=""
+					/>
+                        Заполнить бриф и получить расчет
+                    </button>
+				</div>
 	}
 	else if(showSatge === '2'){
 		show = <Stage2 onChange={this.setAllValuesBool}
@@ -176,11 +195,7 @@ render(){
 					/>
 
                     <div className="calc__wrapper">
-						
 						{show}
-						
-                        
-
                     </div>
                 </div>
             </div>
